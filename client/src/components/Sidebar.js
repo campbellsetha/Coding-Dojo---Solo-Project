@@ -1,12 +1,16 @@
 import React from 'react';
 import axios from 'axios';
-import Nav from 'react-bootstrap';
+import Nav from 'react-bootstrap/Nav';
 
-const Sidebar = () => {
-
+const Sidebar = (props) => {
+    const { currentUnit, setDisplayUnit } = props;
+    
     return (
-        <Nav>
-            
+        <Nav variant="pills" className="flex-column" defaultActiveKey="/dashboard">
+            currentUnit.map((unit, i) => {
+                return (
+                    <Nav.Item className="m-3" onClick={(e) => setDisplayUnit(unit)}>Unit: { unit }</Nav.Item>
+                )})
         </Nav>
     )
 }
