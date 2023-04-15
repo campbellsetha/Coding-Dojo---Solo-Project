@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import jwt from 'jwt-decode';
-//import ListAll from '../components/ListAll';
+import ListAll from '../components/ListAll';
 import NavHeader from '../components/NavHeader';
+import Sidebar from '../compoenents/Sidebar';
 
 const Dashboard = (props) => {
 
-    const [id, setId] = useState("");
-    const [rate, setRate] = useState("");
-    const [rank, setRank] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [firstName, setFirstName] = useState("");
+    const [id, setId] = useState("")
+    const [rate, setRate] = useState("")
+    const [rank, setRank] = useState("")
+    const [lastName, setLastName] = useState("")
+    const [firstName, setFirstName] = useState("")
     const [admin, setAdmin] = useState(false)
-
+    const [currentUnit, setCurrentUnit] = useState([]);
+    const [displayUnit, setDisplayUnit] = useState("")
 
     useEffect(() => {
 
@@ -28,6 +30,7 @@ const Dashboard = (props) => {
                 setLastName(res.data.lastName)
                 setFirstName(res.data.firstName)
                 setAdmin(res.data.admin)
+                setCurrentUnit(res.data.currentUnit)
             }).catch(err => {
                 console.log(err);
             })
@@ -41,12 +44,17 @@ const Dashboard = (props) => {
                 firstName = { firstName }
                 lastName = { lastName }
             />
-            <div>
-                <div>
-
+            <div className="m-4">
+                <div className="m-4">
+                    <Sidebar
+                        currentUnit = { currentUnit }
+                        setDisplayUnit = { setDisplayUnit }
+                    />
                 </div>
-                <div>
-                    
+                <div className="m-4">
+                    <ListAll
+                        displayUnit = { displayUnit }
+                    />
                 </div>
             </div>
 
