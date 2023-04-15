@@ -14,7 +14,7 @@ const RegisterUser = () => {
     const [email, setEmail]=useState("")
     const [password, setPassword]=useState("")
     const [confirm, setConfirm]=useState("")
-    const [currentUnit, setCurrentUnit]=useState("")
+    const [currentUnit, setCurrentUnit]=useState([])
     const [rate, setRate] = useState("");
     const [admin, setAdmin]=useState("")
     const [errors, setErrors]=useState({})
