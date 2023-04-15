@@ -9,14 +9,15 @@ import Button from 'react-bootstrap/Button';
 
 const RegisterUser = () => {
     const navigate = useNavigate();
-    const [firstName, setFirstName]=useState("");
-    const [lastName, setLastName]=useState("");
-    const [email, setEmail]=useState("");
-    const [password, setPassword]=useState("");
-    const [confirm, setConfirm]=useState("");
-    const [detailGroup, setDetailGroup]=useState("");
-    const [admin, setAdmin]=useState("");
-    const [errors, setErrors]=useState({});
+    const [firstName, setFirstName]=useState("")
+    const [lastName, setLastName]=useState("")
+    const [email, setEmail]=useState("")
+    const [password, setPassword]=useState("")
+    const [confirm, setConfirm]=useState("")
+    const [currentUnit, setCurrentUnit]=useState("")
+    const [rate, setRate] = useState("");
+    const [admin, setAdmin]=useState("")
+    const [errors, setErrors]=useState({})
 
 
     const submitHandler = (e) => {
@@ -30,7 +31,8 @@ const RegisterUser = () => {
                     lastName,
                     email,
                     password,
-                    detailGroup,
+                    rate,
+                    currentUnit,
                     admin
             }).then((res) => {
                 console.log(res.data)
@@ -40,6 +42,11 @@ const RegisterUser = () => {
                 setErrors(err.response.data.errors);
             })
         }
+    }
+    
+    const detailingGroup = (e) => {
+        setRate(e.target.value)
+        setcurrentUnit([001, 002, 003, 010, 020])
     }
 
     return (
@@ -83,7 +90,7 @@ const RegisterUser = () => {
                     <Row className="g-2">
                         <Col mb>
                             <FloatingLabel controlID="floatingSelectGrid" label="Detailing Group">
-                                <Form.Select required onchange={(e) => setDetailGroup(e.target.value)}>
+                                <Form.Select required onchange={ detailingGroup }>
                                     <option>Select detailing group</option>
                                     <option value="CS">CS</option>
                                     <option value="EMN">EMN</option>
