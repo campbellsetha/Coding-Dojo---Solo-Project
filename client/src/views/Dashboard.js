@@ -8,13 +8,7 @@ import Sidebar from '../compoenents/Sidebar';
 const Dashboard = (props) => {
 
     const [id, setId] = useState("")
-    const [rate, setRate] = useState("")
-    const [rank, setRank] = useState("")
-    const [lastName, setLastName] = useState("")
-    const [firstName, setFirstName] = useState("")
-    const [admin, setAdmin] = useState(false)
-    const [currentUnit, setCurrentUnit] = useState([]);
-    const [displayUnit, setDisplayUnit] = useState("")
+    const [user, setUser] = useState({})
 
     useEffect(() => {
 
@@ -25,12 +19,7 @@ const Dashboard = (props) => {
         axios.get('http://localhost:8000/api/user/'+user.id)
             .then(res => {
                 console.log(res.data)
-                setRate(res.data.rate);
-                setRank(res.data.rank)
-                setLastName(res.data.lastName)
-                setFirstName(res.data.firstName)
-                setAdmin(res.data.admin)
-                setCurrentUnit(res.data.currentUnit)
+                setUser(res.data)
             }).catch(err => {
                 console.log(err);
             })
