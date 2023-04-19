@@ -1,0 +1,59 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1{
+    font-size: 50px;
+    color:rgb(245, 228, 129);
+    font-weight: 600;
+}
+
+h3 {
+    font-size: x-large;
+    color: whitesmoke;
+} 
+
+.welcome{
+    display: flex;
+    background-color: rgb(1, 6, 25);
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.login-title-nav {
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.login-menu, .register-menu {
+    background-color: rgb(51, 60, 74);
+    border: 1px solid rgb(245, 228, 129);
+    border-radius: 5px;
+    padding: 25px;
+    width: auto;
+    height: auto;
+    margin: 75px;
+    align-self: center;
+    text-align: left;
+}
+
+.register-links {
+    margin: 0px 30px 0px 30px;
+    padding: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    color: black;
+    background: whitesmoke;
+    border: 1px solid rgb(245, 228, 129);
+    border-radius: 15px; 
+}
+
+.submit-button {
+    margin: 15px 0px 0px 5px;
+    background-color: gold;
+    border-radius: 5px;
+    border: 1px solid black;
+    font-weight: 600;
+}
